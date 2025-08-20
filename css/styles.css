@@ -519,7 +519,16 @@ html {
             animation-delay: 0.4s;
         }
         
-        /* Estilos para el mapa interactivo */
+        /* ----- Mobile menu slide ----- */
+.mobile-menu {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+.mobile-menu.open {
+    transform: translateX(0);
+}
+
+/* Estilos para el mapa interactivo */
         .map-container {
             position: relative;
             width: 100%;

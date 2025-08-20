@@ -74,35 +74,122 @@ window.addEventListener('DOMContentLoaded', () => {
     updateMarkers();
 });
 
-      // Toggle user menu
-      document.getElementById('avatar-button').addEventListener('click', function() {
-        const menu = document.getElementById('user-menu');
-        menu.classList.toggle('hidden');
-    });
+      // Toggle user menu (desktop) using .user-dropdown.active and CSS transitions
+      const avatarBtn = document.getElementById('avatar-button');
+      const userDropdown = document.getElementById('user-dropdown');
+      const userMenu = document.getElementById('user-menu');
+      if (userMenu) {
+        // Ensure Tailwind 'hidden' doesn't override our CSS visibility
+        userMenu.classList.remove('hidden');
+      }
+      if (avatarBtn && userDropdown) {
+        avatarBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          userDropdown.classList.toggle('active');
+        });
+        // Close on outside click
+        document.addEventListener('click', function (e) {
+          if (!userDropdown.contains(e.target)) {
+            userDropdown.classList.remove('active');
+          }
+        });
+      }
 
-    // Logout functionality
-    document.getElementById('logout-button-dashboard').addEventListener('click', function(e) {
+// Logout functionality (desktop)
+const logoutBtn = document.getElementById('logout-button') || document.getElementById('logout-button-dashboard');
+if (logoutBtn) {
+    logoutBtn.addEventListener('click', function (e) {
         e.preventDefault();
-        Swal.fire({
-            title: '¿Estás seguro?',
-            text: "Quieres cerrar sesión.",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Sí, cerrar sesión',
-            cancelButtonText: 'Cancelar'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = '/login';
+        if (typeof Swal !== 'undefined') {
+          Swal.fire({
+              title: '¿Estás seguro?',
+              text: 'Quieres cerrar sesión.',
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Sí, cerrar sesión',
+              cancelButtonText: 'Cancelar'
+          }).then((result) => {
+              if (result.isConfirmed) {
+                  window.location.href = '/login';
+              }
+          });
+        } else {
+          window.location.href = '/login';
+        }
+    });
+}
+
+// Set user initials and name (guard against missing elements)
+    const elUserInitials = document.getElementById('user-initials');
+    if (elUserInitials) elUserInitials.textContent = 'J';
+    const elUserMenuInitials = document.getElementById('user-menu-initials');
+    if (elUserMenuInitials) elUserMenuInitials.textContent = 'J';
+    const elUserMenuName = document.getElementById('user-menu-name');
+    if (elUserMenuName) elUserMenuName.textContent = 'Juan';
+    const elUserMenuEmail = document.getElementById('user-menu-email');
+    if (elUserMenuEmail) elUserMenuEmail.textContent = 'juan@gmail.com';
+    const elDashUserName = document.getElementById('dash-user-name');
+    if (elDashUserName) elDashUserName.textContent = 'Juan';
+    const elDashUserEmail = document.getElementById('dash-user-email');
+    if (elDashUserEmail) elDashUserEmail.textContent = 'juan@gmail.com';
+
+    // --- Mobile menu functionality ---
+    const mobileMenuBtn = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileOverlay = document.getElementById('mobile-menu-overlay');
+
+    if (mobileMenuBtn && mobileMenu) {
+        const body = document.body;
+
+        const openMenu = () => {
+            mobileMenu.classList.add('open');
+            mobileMenu.setAttribute('aria-hidden', 'false');
+            mobileMenuBtn.setAttribute('aria-expanded', 'true');
+            mobileOverlay?.classList.remove('hidden');
+            body.classList.add('overflow-hidden');
+        };
+
+        const closeMenu = () => {
+            mobileMenu.classList.remove('open');
+            mobileMenu.setAttribute('aria-hidden', 'true');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            mobileOverlay?.classList.add('hidden');
+            body.classList.remove('overflow-hidden');
+        };
+
+        // Toggle on button
+        mobileMenuBtn.addEventListener('click', () => {
+            if (mobileMenu.classList.contains('open')) {
+                closeMenu();
+            } else {
+                openMenu();
             }
         });
-    });
 
-    // Set user initials and name
-    document.getElementById('user-initials').textContent = 'J';
-    document.getElementById('user-menu-initials').textContent = 'J';
-    document.getElementById('user-menu-name').textContent = 'Juan';
-    document.getElementById('user-menu-email').textContent = 'juan@gmail.com';
-    document.getElementById('dash-user-name').textContent = 'Juan';
-    document.getElementById('dash-user-email').textContent = 'juan@gmail.com';
+        // Close on overlay click
+        mobileOverlay?.addEventListener('click', closeMenu);
+
+        // Close when any link inside it is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        // Close on Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+                closeMenu();
+            }
+        });
+
+        // Close on viewport >= md
+        const mq = window.matchMedia('(min-width: 768px)');
+        mq.addEventListener?.('change', (e) => {
+            if (e.matches) closeMenu();
+        });
+        // Fallback for older browsers
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) closeMenu();
+        });
+    }
