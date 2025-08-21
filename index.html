@@ -12,37 +12,34 @@
 </head>
 <body>
     <!-- Navegación -->
-    <nav class="bg-white shadow-md fixed w-full z-50">
+    <nav class="nav-with-bg bg-white shadow-md fixed top-0 left-0 w-full z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20">
+            <div class="flex items-center justify-between h-16">
+                <!-- Izquierda: Logo -->
                 <div class="flex items-center">
-                    <div class="flex-shrink-0 flex items-center">
-                        <!-- Logo -->
-                        <div class="flex items-center">
-                            <div class="mr-3">
-                                <!-- Logo SVG con ondas sonoras -->
-                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="24" cy="24" r="22" fill="#002D62"/>
-                                    <path d="M24 12C24 10.8954 24.8954 10 26 10C27.1046 10 28 10.8954 28 12V36C28 37.1046 27.1046 38 26 38C24.8954 38 24 37.1046 24 36V12Z" fill="#00B8A9"/>
-                                    <path d="M16 18C16 16.8954 16.8954 16 18 16C19.1046 16 20 16.8954 20 18V30C20 31.1046 19.1046 32 18 32C16.8954 32 16 31.1046 16 30V18Z" fill="#009F4D"/>
-                                    <path d="M8 22C8 20.8954 8.89543 20 10 20C11.1046 20 12 20.8954 12 22V26C12 27.1046 11.1046 28 10 28C8.89543 28 8 27.1046 8 26V22Z" fill="#F8BA3F"/>
-                                    <path d="M32 18C32 16.8954 32.8954 16 34 16C35.1046 16 36 16.8954 36 18V30C36 31.1046 35.1046 32 34 32C32.8954 32 32 31.1046 32 30V18Z" fill="#FFD166"/>
-                                    <path d="M40 22C40 20.8954 40.8954 20 42 20C43.1046 20 44 20.8954 44 22V26C44 27.1046 43.1046 28 42 28C40.8954 28 40 27.1046 40 26V22Z" fill="#C92B28"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <span class="text-xl font-bold text-azulInstitucional">Patrimonio Sonoro</span>
-                                <div class="flex items-center text-xs text-gray-500">
-                                    <span>SENA</span>
-                                    <span class="mx-1">•</span>
-                                    <span>AudioBrand</span>
-                                </div>
-                            </div>
+                    <div class="mr-3">
+                        <!-- Logo SVG con ondas sonoras -->
+                        <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="24" cy="24" r="22" fill="#002D62"/>
+                            <path d="M24 12C24 10.8954 24.8954 10 26 10C27.1046 10 28 10.8954 28 12V36C28 37.1046 27.1046 38 26 38C24.8954 38 24 37.1046 24 36V12Z" fill="#00B8A9"/>
+                            <path d="M16 18C16 16.8954 16.8954 16 18 16C19.1046 16 20 16.8954 20 18V30C20 31.1046 19.1046 32 18 32C16.8954 32 16 31.1046 16 30V18Z" fill="#009F4D"/>
+                            <path d="M8 22C8 20.8954 8.89543 20 10 20C11.1046 20 12 20.8954 12 22V26C12 27.1046 11.1046 28 10 28C8.89543 28 8 27.1046 8 26V22Z" fill="#F8BA3F"/>
+                            <path d="M32 18C32 16.8954 32.8954 16 34 16C35.1046 16 36 16.8954 36 18V30C36 31.1046 35.1046 32 34 32C32.8954 32 32 31.1046 32 30V18Z" fill="#FFD166"/>
+                            <path d="M40 22C40 20.8954 40.8954 20 42 20C43.1046 20 44 20.8954 44 22V26C44 27.1046 43.1046 28 42 28C40.8954 28 40 27.1046 40 26V22Z" fill="#C92B28"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="text-lg font-bold text-azulInstitucional">Patrimonio Sonoro</span>
+                        <div class="flex items-center text-[11px] text-gray-500 leading-none">
+                            <span>SENA</span>
+                            <span class="mx-1">•</span>
+                            <span>AudioBrand</span>
                         </div>
                     </div>
                 </div>
-                <!-- Menú de navegación para escritorio -->
-                <div class="hidden md:flex items-center space-x-6">
+
+                <!-- Centro: Menú escritorio -->
+                <div class="hidden md:flex items-center justify-center space-x-8">
                     <a href="#inicio" class="px-3 py-2 text-sm font-medium text-azulInstitucional hover:text-turquesaAudioBrand transition-colors">Inicio</a>
                     <a href="#que-es" class="px-3 py-2 text-sm font-medium text-azulInstitucional hover:text-turquesaAudioBrand transition-colors">¿Qué es?</a>
                     <a href="#explora" class="px-3 py-2 text-sm font-medium text-azulInstitucional hover:text-turquesaAudioBrand transition-colors">Explora</a>
@@ -50,10 +47,13 @@
                     <a href="#campanas" class="px-3 py-2 text-sm font-medium text-azulInstitucional hover:text-turquesaAudioBrand transition-colors">Campañas</a>
                     <a href="#mapa-sonoro" class="px-3 py-2 text-sm font-medium text-azulInstitucional hover:text-turquesaAudioBrand transition-colors">Mapa Sonoro</a>
                     <a href="#nosotros" class="px-3 py-2 text-sm font-medium text-azulInstitucional hover:text-turquesaAudioBrand transition-colors">Nosotros</a>
-                    
+                </div>
+
+                <!-- Derecha: acciones (login / usuario) -->
+                <div class="hidden md:flex items-center space-x-4">
                     <!-- Botón de inicio de sesión (se oculta cuando el usuario está autenticado) -->
-                    <button id="login-button" class="bg-turquesaAudioBrand hover:bg-opacity-90 text-white px-4 py-2 rounded-full text-sm font-medium transition-all transform hover:scale-105">Iniciar sesión</button>
-                    
+                    <button id="login-button" class="bg-turquesaAudioBrand hover:bg-opacity-90 text-white px-4 py-2 rounded-full text-sm font-medium transition-all">Iniciar sesión</button>
+
                     <!-- Menú de usuario (se muestra cuando el usuario está autenticado) -->
                     <div id="user-dropdown" class="user-dropdown hidden">
                         <div class="avatar cursor-pointer flex items-center" id="avatar-button">
@@ -91,17 +91,9 @@
                             <a href="#" class="user-menu-item">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                 </svg>
                                 Configuración
                             </a>
-                            <a href="#" class="user-menu-item">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                                Ayuda
-                            </a>
-                            <div class="user-menu-divider"></div>
                             <a href="#" class="user-menu-item" id="logout-button">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
@@ -111,7 +103,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- Botón de menú móvil -->
+
+                <!-- Botón de menú móvil (derecha) -->
                 <div class="md:hidden flex items-center">
                     <button id="mobile-menu-button" class="text-azulInstitucional hover:text-turquesaAudioBrand focus:outline-none">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -121,8 +114,10 @@
                 </div>
             </div>
         </div>
+
         <!-- Menú móvil -->
-        <div id="mobile-menu" class="mobile-menu fixed top-20 left-0 w-64 h-full bg-white shadow-lg z-40 transition-transform duration-300 md:hidden" aria-hidden="true">
+        <div id="mobile-menu" class="mobile-menu fixed top-16 left-0 w-64 h-full bg-white shadow-lg z-40 transition-transform duration-300 md:hidden">
+
             <div class="px-2 pt-2 pb-3 space-y-1">
                 <a href="#inicio" class="block px-3 py-2 rounded-md text-base font-medium text-azulInstitucional hover:bg-turquesaAudioBrand hover:text-white">Inicio</a>
                 <a href="#que-es" class="block px-3 py-2 rounded-md text-base font-medium text-azulInstitucional hover:bg-turquesaAudioBrand hover:text-white">¿Qué es?</a>
@@ -989,9 +984,47 @@
             </div>
         </footer>
 
+        <!-- Chatbot: botón flotante y panel -->
+        <button id="chatbot-toggle" class="chatbot-button" aria-label="Abrir chat de asistencia" data-chatbot-url="https://landbot.online/v3/H-3102361-MH0I8UTYRQSKPHB3/index.html">
+            <!-- Icono de chatbot (burbuja de chat) -->
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M7 8h10M7 12h6" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M21 11c0 4.418-4.03 8-9 8-1.03 0-2.02-.15-2.94-.43-.36-.11-.54-.16-.71-.17-.18-.02-.37.01-.73.09l-3.1.67c-.41.09-.62.14-.76.05-.14-.09-.16-.3-.19-.71l-.22-3.12c-.03-.39-.05-.58-.02-.76.03-.19.11-.36.28-.7.49-.98.74-1.47.9-1.98.19-.59.27-1.2.27-1.84 0-4.418 4.03-8 9-8s9 3.582 9 8Z" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+
+        <!-- Panel/iframe eliminados: ahora el chat abre en ventana emergente del navegador -->
+
         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
         <script src="js/main.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="js/auth.js"></script>
+        <script>
+            (function () {
+                const toggle = document.getElementById('chatbot-toggle');
+                const DEFAULT_URL = 'https://landbot.online/v3/H-3102361-MH0I8UTYRQSKPHB3/index.html';
+                const attrUrl = (toggle.getAttribute('data-chatbot-url') || '').trim();
+                const URL = attrUrl.length ? attrUrl : DEFAULT_URL;
+
+                function openCenteredPopup(url, title, w, h) {
+                    const dualScreenLeft = window.screenLeft !== undefined ? window.screenLeft : window.screenX;
+                    const dualScreenTop = window.screenTop !== undefined ? window.screenTop : window.screenY;
+                    const width = window.innerWidth || document.documentElement.clientWidth || screen.width;
+                    const height = window.innerHeight || document.documentElement.clientHeight || screen.height;
+                    const systemZoom = width / window.screen.availWidth;
+                    const left = (width - w) / 2 / systemZoom + dualScreenLeft;
+                    const top = (height - h) / 2 / systemZoom + dualScreenTop;
+                    const features = `scrollbars=yes, width=${w}, height=${h}, top=${top}, left=${left}, resizable=yes`;
+                    const win = window.open(url, title, features);
+                    if (win) { win.focus(); }
+                    return win;
+                }
+
+                toggle.addEventListener('click', () => {
+                    openCenteredPopup(URL, 'Chat Patrimonio Sonoro', 420, 640);
+                });
+            })();
+        </script>
+
 </body>
-</html>      
+</html>

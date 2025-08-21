@@ -5,12 +5,35 @@ html {
             font-family: 'Poppins', sans-serif;
             color: #121212;
             background-color: #F4F4F4;
+            /* Compensar el nav fijo de 64px */
+            padding-top: 64px;
         }
+
+        /* Eliminado: variable de imagen de fondo para el nav */
+
         .hero-section {
-            background-image: linear-gradient(rgba(0, 45, 98, 0.7), rgba(0, 45, 98, 0.7)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1200 800'%3E%3Cdefs%3E%3CradialGradient id='a' cx='0' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23215585'/%3E%3Cstop offset='1' stop-color='%23215585' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='b' cx='1200' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%2300B8A9'/%3E%3Cstop offset='1' stop-color='%2300B8A9' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='c' cx='600' cy='0' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23FFD166'/%3E%3Cstop offset='1' stop-color='%23FFD166' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='d' cx='600' cy='800' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23002D62'/%3E%3Cstop offset='1' stop-color='%23002D62' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='e' cx='0' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23C92B28'/%3E%3Cstop offset='1' stop-color='%23C92B28' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='f' cx='1200' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23009F4D'/%3E%3Cstop offset='1' stop-color='%23009F4D' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='1200' height='800'/%3E%3Crect fill='url(%23b)' width='1200' height='800'/%3E%3Crect fill='url(%23c)' width='1200' height='800'/%3E%3Crect fill='url(%23d)' width='1200' height='800'/%3E%3Crect fill='url(%23e)' width='1200' height='800'/%3E%3Crect fill='url(%23f)' width='1200' height='800'/%3E%3C/svg%3E");
+            /* Gradiente azul -> turquesa */
+            background: linear-gradient(135deg, #1F3B64 0%, #0EA5A4 100%);
             background-size: cover;
             background-position: center;
             position: relative;
+        }
+
+        /* Mejora de legibilidad del texto sobre imagen en hero */
+        .hero-section h1,
+        .hero-section h2,
+        .hero-section h3,
+        .hero-section p,
+        .hero-section a,
+        .hero-section span,
+        .hero-section .btn,
+        .hero-section .button {
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+        }
+
+        /* Título principal un poco más marcado */
+        .hero-section h1 {
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.45);
         }
         .sound-wave {
             position: absolute;
@@ -535,7 +558,129 @@ html {
             max-width: 800px;
             margin: 0 auto;
         }
-        
+
+.nav-with-bg {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    color: inherit;
+}
+
+.map-tooltip {
+    position: absolute;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    padding: 12px;
+    z-index: 10;
+    display: none;
+    min-width: 200px;
+}
+
+.map-tooltip-title {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.map-tooltip-content {
+    font-size: 14px;
+    color: #4B5563;
+}
+
+/* Estilos para los filtros de búsqueda */
+.search-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.filter-select {
+    padding: 8px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background-color: white;
+    min-width: 150px;
+}
+
+.search-input {
+    padding: 8px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    flex-grow: 1;
+}
+
+/* Estilos para el reproductor de audio */
+.audio-player {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    margin-top: 24px;
+    display: none;
+}
+
+.audio-player.active {
+    display: block;
+}
+
+.audio-player-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.audio-player-title {
+    font-weight: 600;
+    margin-left: 12px;
+}
+
+.audio-player-controls {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.audio-player-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #00B8A9;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-right: 12px;
+}
+
+.audio-player-progress {
+    flex-grow: 1;
+    height: 4px;
+    background-color: #e2e8f0;
+    border-radius: 2px;
+    position: relative;
+    cursor: pointer;
+}
+
+.audio-player-progress-bar {
+    height: 100%;
+    background-color: #00B8A9;
+    border-radius: 2px;
+    width: 0;
+}
+
+.audio-player-time {
+    font-size: 12px;
+    color: #6B7280;
+    margin-left: 12px;
+}
+
+.audio-player-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #4B5563;
+}
         .map-tooltip {
             position: absolute;
             background-color: white;
@@ -545,6 +690,59 @@ html {
             z-index: 10;
             display: none;
             min-width: 200px;
+        }
+
+        /* Chatbot: botón flotante y panel */
+        .chatbot-button {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            width: 56px;
+            height: 56px;
+            border-radius: 9999px;
+            background-color: #0EA5A4; /* turquesaAudioBrand */
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -4px rgba(0,0,0,.1);
+            border: none;
+            cursor: pointer;
+            z-index: 60;
+        }
+        .chatbot-button:hover { background-color: #0c8e8d; }
+
+        .chatbot-panel {
+            position: fixed;
+            right: 24px;
+            bottom: 96px; /* deja espacio sobre el botón */
+            width: 380px;
+            height: 560px;
+            max-width: calc(100vw - 32px);
+            max-height: calc(100vh - 140px);
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,.25);
+            overflow: hidden;
+            display: none;
+            z-index: 60;
+        }
+        .chatbot-panel.open { display: block; }
+        .chatbot-iframe { width: 100%; height: 100%; border: 0; }
+        .chatbot-close {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            background: rgba(0,0,0,.55);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .map-tooltip-title {
