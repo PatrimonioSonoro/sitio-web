@@ -1,0 +1,2 @@
+# Ignore secret directory with sensitive tokens
+/secret/
