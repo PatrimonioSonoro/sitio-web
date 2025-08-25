@@ -12,11 +12,24 @@ html {
         /* Eliminado: variable de imagen de fondo para el nav */
 
         .hero-section {
-            /* Gradiente azul -> turquesa */
-            background: linear-gradient(135deg, #1F3B64 0%, #0EA5A4 100%);
-            background-size: cover;
-            background-position: center;
+            /* Degradado con nuevos colores (#002D62 -> #00B8A9) y banner más legible */
+            /* Gradiente solicitado */
+            background-image:
+                linear-gradient(135deg, #1F3B64 0%, #0EA5A4 100%),
+                url('../assets/images/banner_2.png');
+            /* El degradado cubre todo, la imagen se ajusta completa para que se lea su contenido */
+            background-size: cover, contain;
+            background-position: center, center 50%;
+            background-repeat: no-repeat, no-repeat;
+            background-blend-mode: overlay, normal;
             position: relative;
+            padding-bottom: 200px; /* separación extra para la onda inferior */
+            /* Inset visual del banner con relleno de gradiente en los márgenes laterales */
+            padding-left: 3.5vw;
+            padding-right: 3.5vw;
+            /* Capa 1 (gradiente): ocupa todo el ancho (incluye padding). Capa 2 (imagen): se in seta al content-box */
+            background-origin: border-box, content-box;
+            background-clip: border-box, content-box;
         }
 
         /* Mejora de legibilidad del texto sobre imagen en hero */
@@ -37,13 +50,63 @@ html {
         }
         .sound-wave {
             position: absolute;
-            bottom: 0;
+            bottom: -40px; /* aún más baja */
             left: 0;
             width: 100%;
-            height: 120px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23F4F4F4' fill-opacity='1' d='M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,202.7C672,203,768,181,864,181.3C960,181,1056,203,1152,208C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            height: 200px;
+            /* Onda blanca sencilla que une el héroe con el fondo blanco siguiente */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 160'%3E%3Cpath d='M0,60 C180,100 360,20 540,45 C720,70 900,110 1080,90 C1260,70 1350,60 1440,70 L1440,160 L0,160 Z' fill='%23FFFFFF' stroke='rgba(0,0,0,0.10)' stroke-width='1'/%3E%3C/svg%3E");
             background-size: cover;
+            background-repeat: no-repeat;
+            pointer-events: none;
         }
+
+        /* Onda superior centrada para el héroe */
+        .sound-wave-top {
+            width: 360px;
+            max-width: 85vw;
+            height: 64px;
+            margin: 20px auto 14px auto; /* bajar más la onda superior */
+            display: block;
+            position: relative;
+            z-index: 1;
+            /* Onda con trazos (sin relleno) para evitar franja sólida */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 560 80' fill='none'%3E%3Cg stroke-linecap='round' stroke-width='6'%3E%3Cpath d='M0 40 C 60 10, 120 70, 180 40 S 300 10, 360 40 S 480 70, 560 40' stroke='%239A2280'/%3E%3Cpath d='M0 48 C 60 18, 120 78, 180 48 S 300 18, 360 48 S 480 78, 560 48' stroke='%233CAA35' opacity='0.85'/%3E%3Cpath d='M0 56 C 60 26, 120 86, 180 56 S 300 26, 360 56 S 480 86, 560 56' stroke='%23FECE43' opacity='0.75'/%3E%3C/g%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+        }
+        @media (min-width: 768px) {
+            .sound-wave-top {
+                width: 560px;
+                height: 88px;
+                margin: 10px auto 12px auto;
+            }
+        }
+
+        /* Espaciador para mantener posiciones al remover H1 y P en el héroe */
+        .hero-spacer {
+            height: 110px; /* subir botones: reducir espacio previo */
+        }
+        @media (min-width: 768px) {
+            .hero-spacer {
+                height: 180px; /* subir botones en desktop */
+            }
+        }
+
+        /* Espaciado específico de botones del héroe (más abajo para no tapar texto) */
+        .hero-buttons { margin-top: 100px; }
+        @media (min-width: 768px) { /* desktop/tablet */
+            .hero-buttons { margin-top: 160px; }
+        }
+
+        /* Ondas superiores un poco más arriba para no tapar el texto del banner */
+        .hero-waves-top { margin-top: 20px; }
+        @media (min-width: 768px) {
+            .hero-waves-top { margin-top: 60px; }
+        }
+        /* Ajuste fino: subir 20px el bloque interno de barras */
+        .waves-inline { margin-top: -20px; }
         .region-card {
             transition: all 0.3s ease;
             cursor: pointer;
@@ -525,6 +588,12 @@ html {
             border-radius: 2px;
             animation: wave 1s ease-in-out infinite;
         }
+        /* Colores específicos para las 5 barras en la sección héroe */
+        .hero-section .sound-bar:nth-child(1) { background-color: #FECE43; }
+        .hero-section .sound-bar:nth-child(2) { background-color: #3CAA35; }
+        .hero-section .sound-bar:nth-child(3) { background-color: #9A2280; }
+        .hero-section .sound-bar:nth-child(4) { background-color: #3CAA35; }
+        .hero-section .sound-bar:nth-child(5) { background-color: #FECE43; }
         
         .sound-bar:nth-child(2) {
             animation-delay: 0.1s;

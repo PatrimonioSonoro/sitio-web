@@ -336,10 +336,11 @@
     <main>
         <!-- Sección de inicio -->
         <section id="inicio" class="hero-section min-h-screen flex items-center justify-center relative">
+            <!-- Onda inferior como antes -->
             <div class="sound-wave"></div>
             <div class="container mx-auto px-4 text-center text-white z-10">
-                <div class="flex justify-center mb-6">
-                    <div class="flex items-center space-x-1">
+                <div class="flex justify-center mb-6 hero-waves-top">
+                    <div class="flex items-center space-x-1 waves-inline">
                         <div class="sound-bar h-12"></div>
                         <div class="sound-bar h-16"></div>
                         <div class="sound-bar h-20"></div>
@@ -347,9 +348,11 @@
                         <div class="sound-bar h-12"></div>
                     </div>
                 </div>
-                <h1 class="text-5xl md:text-7xl font-bold mb-6">Esto suena a nosotros</h1>
-                <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-12">Preservamos, visualizamos y difundimos los sonidos representativos de Colombia como parte de nuestro patrimonio cultural inmaterial.</p>
-                <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6">
+
+                <!-- Espaciador para mantener posiciones al remover H1 y P -->
+                <div class="hero-spacer"></div>
+
+                <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6 hero-buttons">
                     <a href="#explora" class="bg-turquesaAudioBrand hover:bg-opacity-90 text-white px-8 py-3 rounded-full text-lg font-medium transition-all transform hover:scale-105">Explorar sonidos</a>
                     <a href="#que-es" class="bg-transparent border-2 border-white hover:bg-white hover:text-azulInstitucional text-white px-8 py-3 rounded-full text-lg font-medium transition-all">Conocer más</a>
                 </div>
